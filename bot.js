@@ -116,4 +116,71 @@ bot.on('ready', () => {
   }, 5000); // Runs this every 10 seconds.
 });
 
+var prefix = '.'
+
+bot.on('ready',  () => {
+  });
+  
+bot.on('guildMemberAdd', member => {
+  console.log('Пользователь ' + member.user.username + ' Присоединился в конфу!')
+  var role = member.guild.roles.find('Участник', '@Участник') // "Участники" - Название вашей роли
+  member.addRole(role)
+});
+
+bot.on('guildMemberRemove', member => {
+  console.log('Пользователь ' + member.user.username + ' ливнул с конфы!')
+});
+
+ 
+ bot.on('message', message => {
+    if(message.content.startsWith(prefix + 'кража')) {
+        message.channel.sendMessage('РПшниек украл деньги у ... ');
+     }
+ });
+
+ bot.on('message', message => {
+    if(message.content.startsWith(prefix + 'работа')) {
+        message.channel.sendMessage('РПшниек Заработал денег');
+     }
+ });
+
+ bot.on('message', message => {
+    if(message.content.startsWith(prefix + 'адвенчур')) {
+        message.channel.sendMessage('РПшниек Пошол в поход ');
+     }
+ });
+
+
+ bot.on('message', message => {
+    if(message.content.startsWith(prefix + 'атака1')) {
+        message.channel.sendMessage('Противник получил 5 урона ');
+     }
+ });
+
+ bot.on('message', message => {
+    if(message.content.startsWith(prefix + 'атака2')) {
+        message.channel.sendMessage('Противник получил 5 урона ');
+     }
+ });
+
+ bot.on('message', message => {
+    if(message.content.startsWith(prefix + 'атака3')) {
+        message.channel.sendMessage('Противник получил проклятие и сдохнет через 3 дня ');
+     }
+ });
+
+bot.on('message', message => {
+    if(message.content.startsWith(prefix + 'лечение')) {
+    message.Channel.sendMessage('РПшниек вылечил себя ');
+    }
+});
+
+bot.on('message', message => {
+    if(message.content.startsWith(prefix + 'гильдия')) {
+    message.Channel.sendMessage('РПшниек подал заявку на вступление в гильдию ');
+    }
+});
+
+
+
 bot.login(token);
