@@ -7,8 +7,6 @@ module.exports.run = async (bot,message,args) => {
         message.channel.send(msg);
     }
 
-
-    if(!message.member.hasPermission("KICK_MEMBERS")) return message.channel.send("У Вас нет прав");
     let rUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
     
     let enbed = new Discord.RichEmbed()
