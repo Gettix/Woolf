@@ -116,7 +116,7 @@ bot.on('ready', () => {
   }, 5000); // Runs this every 10 seconds.
 });
 
-var prefix = '.'
+var prefix = 'w!'
 
 bot.on('ready',  () => {
   });
