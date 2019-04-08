@@ -74,19 +74,7 @@ bot.on('messageUpdate', async (oldmsg, newmsg) => {
     .addField('Сейчас', newmsg.content)
     .setColor('#FF8000')
     .setTimestamp()
-
-  
-  
-  
-                                          
-                                          
-                                          
-
-
   message.channel.send(embed)
-
-
-
 })
 
 bot.on('guildMemberAdd', async member => {
@@ -101,17 +89,6 @@ bot.on('guildMemberAdd', async member => {
       .setTimestamp()
 await channels.send(embed)
 await member.addRole(role.id);
-})
-
-bot.on('guildMemberRemove', async member => {
-  let embed = new Discord.RichEmbed()
-      .setAuthor('Пользователь вышел', member.user.avatarURL)
-      .setDescription(`${member.user.username}#${member.user.discriminator} (${member})`)
-      .setColor('#6A696A')
-      .setFooter(`ID: ${member.id}`)
-      .setTimestamp()
-  let channel = member.guild.channels.find( = 'actions')
-  await channels.send(embed)
 })
 
 const activities_list = [
