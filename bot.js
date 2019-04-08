@@ -74,7 +74,10 @@ bot.on('messageUpdate', async (oldmsg, newmsg) => {
     .addField('Сейчас', newmsg.content)
     .setColor('#FF8000')
     .setTimestamp()
-  await oldmsg.channel.send(embed);
+  let reportschannel = message.guild.channels.find(`name`, "log");
+    if(!reportschannel) return message.channel.send("Не удалось найти канал сообщений.");
+
+
 })
 
 bot.on('guildMemberAdd', async member => {
