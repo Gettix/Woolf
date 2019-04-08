@@ -82,7 +82,7 @@ bot.on('messageUpdate', async (oldmsg, newmsg) => {
                                           
                                           
 
-    let channel = member.guild.channels.find(c => c.name == 'log')
+    let channel = member.guild.channels.find(`name`= 'log')
   await channels.send(embed)
 
 
@@ -110,7 +110,7 @@ bot.on('guildMemberRemove', async member => {
       .setColor('#6A696A')
       .setFooter(`ID: ${member.id}`)
       .setTimestamp()
-  let channel = member.guild.channels.find(c => c.name == 'actions')
+  let channel = member.guild.channels.find( = 'actions')
   await channels.send(embed)
 })
 
