@@ -76,6 +76,7 @@ bot.on('messageUpdate', async (oldmsg, newmsg) => {
     .setTimestamp()
   let reportschannel = message.guild.channels.find(`name`, "log");
     if(!reportschannel) return message.channel.send("Не удалось найти канал сообщений.");
+await oldmsg.channel.send(embed);
 
 
 })
