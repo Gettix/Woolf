@@ -82,8 +82,8 @@ bot.on('messageUpdate', async (oldmsg, newmsg) => {
                                           
                                           
 
-    let channel = member.guild.channels.find(`name`= 'log')
-  await channel.send(embed)
+
+  message.channel.send(embed)
 
 
 
@@ -99,7 +99,7 @@ bot.on('guildMemberAdd', async member => {
       .setColor('#F7FE2E')
       .setFooter(`ID: ${member.id}`)
       .setTimestamp()
-await channel.send(embed)
+await channels.send(embed)
 await member.addRole(role.id);
 })
 
@@ -111,7 +111,7 @@ bot.on('guildMemberRemove', async member => {
       .setFooter(`ID: ${member.id}`)
       .setTimestamp()
   let channel = member.guild.channels.find( = 'actions')
-  await channel.send(embed)
+  await channels.send(embed)
 })
 
 const activities_list = [
