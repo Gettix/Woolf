@@ -13,6 +13,7 @@ module.exports.run = async (bot,message,args) => {
     
     if(!args[0]) return send("Вы не указали пользовтеля");
     if(!rUser) return send("Пользователь не найден");
+    if(message.author.username) return send("Вы не можете кикнуть себя!")
     let enbed = new Discord.RichEmbed()
     .setDescription("Кик")
     .setColor('#e22216')
