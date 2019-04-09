@@ -105,7 +105,7 @@ bot.on('ready', () => {
   }, 5000); // Runs this every 10 seconds.
 });
 
-if (msg.startsWith (prefix + "8ball")) {
+if (!message.startsWith (prefix + "8ball")) {
   ballMessage = message.content.slice(9);
   number = 2;
   var random = Math.floor (math.random() * (number - 1 + 1)) + 1;
