@@ -105,4 +105,14 @@ bot.on('ready', () => {
   }, 5000); // Runs this every 10 seconds.
 });
 
+if (msg.startsWith (prefix + "8ball")) {
+  ballMessage = message.content.slice(9);
+  number = 2;
+  var random = Math.floor (math.random() * (number - 1 + 1)) + 1;
+  switch (random) { 
+    case 1: message.channel.send ('8ball говорит что "' + ballMessage + '" сбудеться'); break;
+    case 2: message.channel.send ('8ball говорит что "' + ballMessage + '" **Не** сбудеться'); break;
+  }
+}
+
 bot.login(token);
