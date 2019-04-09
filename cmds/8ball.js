@@ -9,3 +9,8 @@ var fortunes = [
   ":8ball: | Nope !",
   ":8ball: | Never ~"
 ];
+
+if (args[1]) message.channel.sendMessage(fortunes[Math.floor(Math.random() * fortunes.length)]);
+      else message.channel.sendMessage(":8ball: How to use, type: #8ball and your question after")
+         break;
+
