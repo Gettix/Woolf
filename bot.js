@@ -6,7 +6,6 @@ let config = require('./botconfig.json');
 let token = config.token;
 let prefix = config.prefix;
 let profile = require('./profile.json');
-
 fs.readdir('./cmds',(err,files)=>{
   if(err) console.log(err);
   let jsfiles = files.filter(f => f.split(".").pop() === "js");
@@ -18,8 +17,6 @@ fs.readdir('./cmds',(err,files)=>{
     bot.commands.set(props.help.name,props);
   })
 })
-
-
 bot.on('ready', () => {
   console.log(`Запустился бот ${bot.user.username}`);
   bot.generateInvite(["ADMINISTRATOR"]).then(link => {
@@ -64,7 +61,6 @@ bot.on('message', async message => {
   let cmd = bot.commands.get(command.slice(prefix.length));
   if(cmd) cmd.run(bot,message,args);
 });
-
 bot.on('messageUpdate', async (oldmsg, newmsg) => {
   let embed = new Discord.RichEmbed()
     .setAuthor('Сообщение изменено', newmsg.guild.iconURL)
@@ -74,13 +70,24 @@ bot.on('messageUpdate', async (oldmsg, newmsg) => {
     .addField('Сейчас', newmsg.content)
     .setColor('#FF8000')
     .setTimestamp()
+
+
+
+
+
+
+
+
+
   message.channel.send(embed)
+
+
+
 })
 
 bot.on('guildMemberAdd', async member => {
   let role = member.guild.roles.find(r => r.name == "Community")
   let channel = member.guild.channels.find(c => c.name == 'actions')
-
   let embed = new Discord.RichEmbed()
       .setAuthor('Пользователь присоеденился', member.user.avatarURL)
       .setDescription(`${member.user.username}#${member.user.discriminator} (${member})`)
@@ -91,11 +98,27 @@ await channels.send(embed)
 await member.addRole(role.id);
 })
 
+bot.on('guildMemberRemove', async member => {
+  let embed = new Discord.RichEmbed()
+      .setAuthor('Пользователь вышел', member.user.avatarURL)
+      .setDescription(`${member.user.username}#${member.user.discriminator} (${member})`)
+      .setColor('#6A696A')
+      .setFooter(`ID: ${member.id}`)
+      .setTimestamp()
+  let channel = member.guild.channels.find( = 'actions')
+  await channels.send(embed)
+})
+
 const activities_list = [
   "Hewwo", 
   "im furry moderator bot",
   "please w!help for help", 
   "Thank you"
   ]; // creates an arraylist containing phrases you want your bot to switch through.
-
+bot.on('ready', () => {
+  setInterval(() => {
+      const index = Math.floor(Math.random() * (activities_list.length - 1) + 1); // generates a random number between 1 and the length of the activities array list (in this case 5).
+      bot.user.setActivity(activities_list[index]); // sets bot activities to one of the phrases in the arraylist.
+  }, 5000); // Runs this every 10 seconds.
+});
 bot.login(token);
