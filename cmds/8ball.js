@@ -14,3 +14,6 @@ if (args[1]) message.channel.sendMessage(fortunes[Math.floor(Math.random() * for
       else message.channel.sendMessage(":8ball: How to use, type: #8ball and your question after")
          break;
 
+module.exports.help = {
+    name: "8ball"
+};
