@@ -13,6 +13,7 @@ module.exports.run = async (bot,message,args) => {
     
     if(!args[0]) return send("Вы не указали пользовтеля");
     if(!rUser) return send("Пользователь не найден");
+    if(message.author.username) return send("Вы не можете выдать себе предупреждение!");
 
     profile[rUser.id].warns++;
     fs.writeFile('./profile.json',JSON.stringify(profile),(err) =>{
