@@ -16,3 +16,7 @@ var fortunes = [
     "Maybe",
 
 ]; 
+
+module.exports.help = {
+    name: "8ball"
+};
